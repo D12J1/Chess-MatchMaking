@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestor de Torneos / Campeonatos</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <h1><i class="fa-solid font-awesome-logo-full fa-trophy"></i> Gestor de Torneos</h1>
+      <p id="subheading-active-group">Ningún torneo seleccionado</p>
+    </header>
+
+    <nav class="tabs">
+      <button class="tab-btn active" onclick="cambiarTab('dashboard')"><i class="fa-solid fa-chart-pie"></i> Dashboard</button>
+      <button class="tab-btn" onclick="cambiarTab('crear')"><i class="fa-solid fa-plus-circle"></i> Crear</button>
+      <button class="tab-btn" onclick="cambiarTab('torneos')"><i class="fa-solid fa-list-check"></i> Mis Torneos</button>
+      <button class="tab-btn" onclick="cambiarTab('partidas')"><i class="fa-solid fa-gamepad"></i> Partidas</button>
+      <button class="tab-btn" onclick="cambiarTab('clasificacion')"><i class="fa-solid fa-ranking-star"></i> Tabla</button>
+      <button class="tab-btn" onclick="cambiarTab('ajustes')"><i class="fa-solid fa-sliders"></i> Ajustes</button>
+    </nav>
+
+    <section id="tab-dashboard" class="tab-content active">
+      <div class="stats-grid">
+        <div class="card stat-card">
+          <h3 id="stat-torneos">0</h3>
+          <p>Torneos Totales</p>
+        </div>
+        <div class="card stat-card">
+          <h3 id="stat-jugadores">0</h3>
+          <p>Jugadores Totales</p>
+        </div>
+        <div class="card stat-card">
+          <h3 id="stat-partidas">0</h3>
+          <p>Partidas Registradas</p>
+        </div>
+      </div>
+      <div class="card" id="dashboard-recent"></div>
+    </section>
+
+    <section id="tab-crear" class="tab-content">
+      <div class="card">
+        <h2><i class="fa-solid fa-folder-plus" style="color: #10b981;"></i> Nuevo Torneo</h2>
+        <div class="form-group" style="display: flex; flex-direction: column; gap: 14px;">
+          <div>
+            <label style="font-size: 0.85rem; color: var(--text-muted); font-weight: 600; display: block; margin-bottom: 6px;">Nombre del Torneo</label>
+            <input type="text" id="group-name-input" placeholder="Ej: Torneo de Verano 2026">
+          </div>
+          <div>
+            <label style="font-size: 0.85rem; color: var(--text-muted); font-weight: 600; display: block; margin-bottom: 6px;">URL del Banner (Opcional)</label>
+            <input type="text" id="group-banner-input" placeholder="https://ejemplo.com/imagen.jpg">
+          </div>
+          <button type="button" class="btn-full" onclick="crearGrupo()"><i class="fa-solid fa-check"></i> Crear Torneo</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="tab-torneos" class="tab-content">
+      <div id="lista-grupos-container"></div>
+    </section>
+
+    <section id="tab-partidas" class="tab-content">
+      <div id="partidas-container"></div>
+    </section>
+
+    <section id="tab-clasificacion" class="tab-content">
+      <div id="clasificacion-container"></div>
+    </section>
+
+    <section id="tab-ajustes" class="tab-content">
+      <div class="card">
+        <h2><i class="fa-solid fa-database" style="color: #3b82f6;"></i> Gestión de Datos</h2>
+        <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 16px;">Exporta un respaldo completo de tus torneos o restaura tus datos desde un archivo JSON.</p>
+        <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+          <button onclick="exportarDatos()"><i class="fa-solid fa-download"></i> Exportar JSON</button>
+          <input type="file" id="import-json-input" accept=".json" style="display: none;" onchange="importarDatos(event)">
+          <button class="btn-secondary" onclick="document.getElementById('import-json-input').click()"><i class="fa-solid fa-upload"></i> Importar JSON</button>
+          <button class="btn-danger" onclick="borrarTodo()"><i class="fa-solid fa-trash-can"></i> Restablecer Todo</button>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script src="app.js"></script>
+  <div class="watermark">© 2026 D12J1</div>
+</body>
+</html>
