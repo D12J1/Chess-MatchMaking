@@ -31,10 +31,8 @@ Una aplicación web moderna, intuitiva y responsive diseñada para organizar, ad
 
 ---
 
-## 💻 Instalación y Uso Local
+## 💻 Uso web
 
-No requiere de compilación ni servidores complejos. Puedes ejecutar el proyecto directamente en cualquier navegador web moderno.
+Puedes usar directamente desde Github Pages este programa.
 
-1. **Clona el repositorio:**
-   ```bash
-   git clone [https://github.com/tu-usuario/gestor-de-torneos.git](https://github.com/tu-usuario/gestor-de-torneos.git)
+https://d12j1.github.io/Chess-MatchMaking/
